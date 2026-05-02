@@ -15,6 +15,31 @@ const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID'
 const EMAILJS_PUBLIC_KEY  = 'YOUR_PUBLIC_KEY'
 // ──────────────────────────────────────────────────────────────
 
+const CONTACT_EMAIL = 'info@varunaaviation.com'
+const FORM_RECIPIENTS = ['info@varunaaviation.com', 'manish.gupta@varunaaviation.com']
+const WEBSITE_FROM_EMAIL = 'info@varunaaviation.com'
+const PHONE_DISPLAY = '+91 79779 42660'
+const PHONE_HREF = 'tel:+917977942660'
+
+const emailJsConfigured = [EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, EMAILJS_PUBLIC_KEY]
+  .every(value => value && !value.startsWith('YOUR_'))
+
+const buildMailto = form => {
+  const subject = encodeURIComponent(`Website enquiry - ${form.type || 'General'}`)
+  const body = encodeURIComponent([
+    `Name: ${form.name}`,
+    `Organisation: ${form.org || '-'}`,
+    `Email: ${form.email}`,
+    `Enquiry type: ${form.type || '-'}`,
+    '',
+    form.message,
+    '',
+    `Website sender account: ${WEBSITE_FROM_EMAIL}`,
+  ].join('\n'))
+
+  return `mailto:${CONTACT_EMAIL}?cc=${encodeURIComponent(FORM_RECIPIENTS[1])}&subject=${subject}&body=${body}`
+}
+
 const TYPES = [
   'Drone Manufacturing',
   'DGCA Certification',
@@ -37,6 +62,12 @@ export default function Contact() {
     if (!form.name || !form.email || !form.message) return
     setStatus('sending')
 
+    if (!emailJsConfigured) {
+      window.location.href = buildMailto(form)
+      setStatus('idle')
+      return
+    }
+
     try {
       await emailjs.send(
         EMAILJS_SERVICE_ID,
@@ -45,6 +76,9 @@ export default function Contact() {
           from_name:    form.name,
           from_org:     form.org,
           from_email:   form.email,
+          reply_to:      form.email,
+          to_email:      FORM_RECIPIENTS.join('; '),
+          website_from:  WEBSITE_FROM_EMAIL,
           enquiry_type: form.type,
           message:      form.message,
         },
@@ -63,11 +97,11 @@ export default function Contact() {
   const leadRef  = useReveal()
 
   return (
-    <section id="contact" style={{ background: '#0D1B2A' }}>
+    <section id="contact" style={{ background: '#102437' }}>
       <div style={{ maxWidth: 800, margin: '0 auto', textAlign: 'center' }}>
 
         <p ref={labelRef} className="reveal" style={{ fontFamily: "'DM Mono',monospace", fontSize: 11,
-          letterSpacing: '0.2em', textTransform: 'uppercase', color: '#2176FF', marginBottom: 14 }}>
+          letterSpacing: '0.2em', textTransform: 'uppercase', color: '#87C3F5', marginBottom: 14 }}>
           Contact
         </p>
         <h2 ref={titleRef} className="reveal" style={{ fontFamily: "'Bebas Neue',sans-serif",
@@ -81,11 +115,70 @@ export default function Contact() {
           or need technical advisory — reach out and we'll respond within one business day.
         </p>
 
+        <div style={{
+          borderTop: '1px solid rgba(135,195,245,0.16)',
+          borderBottom: '1px solid rgba(135,195,245,0.16)',
+          padding: '26px 0 30px', marginBottom: 36,
+        }}>
+          <p style={{ fontFamily: "'DM Mono',monospace", fontSize: 10,
+            letterSpacing: '0.16em', textTransform: 'uppercase',
+            color: 'rgba(245,247,250,0.38)', marginBottom: 16, textAlign: 'left' }}>
+            Direct Contact
+          </p>
+          <div className="contact-links" style={{
+            display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16,
+            textAlign: 'left', transitionDelay: '0.25s',
+          }}>
+            <a href={`mailto:${CONTACT_EMAIL}`} data-hover style={{
+              display: 'block', position: 'relative', overflow: 'hidden',
+              padding: '24px 26px 22px', background: 'rgba(135,195,245,0.14)',
+              border: '1px solid rgba(135,195,245,0.26)', borderRadius: 3,
+              textDecoration: 'none', color: '#F5F7FA',
+              transition: 'border-color .2s, background .2s, transform .2s',
+            }}
+              onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(135,195,245,0.58)'; e.currentTarget.style.background = 'rgba(135,195,245,0.2)'; e.currentTarget.style.transform = 'translateY(-3px)' }}
+              onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(135,195,245,0.26)'; e.currentTarget.style.background = 'rgba(135,195,245,0.14)'; e.currentTarget.style.transform = 'translateY(0)' }}>
+              <span style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 2,
+                background: 'linear-gradient(90deg, transparent, #87C3F5, transparent)' }} />
+              <span style={{ display: 'block', fontFamily: "'DM Mono',monospace", fontSize: 10,
+                letterSpacing: '0.15em', textTransform: 'uppercase',
+                color: 'rgba(245,247,250,0.52)', marginBottom: 10 }}>
+                Email
+              </span>
+              <span style={{ fontSize: 17, color: '#F5F7FA' }}>{CONTACT_EMAIL}</span>
+            </a>
+            <a href={PHONE_HREF} data-hover style={{
+              display: 'block', position: 'relative', overflow: 'hidden',
+              padding: '24px 26px 22px', background: 'rgba(135,195,245,0.14)',
+              border: '1px solid rgba(135,195,245,0.26)', borderRadius: 3,
+              textDecoration: 'none', color: '#F5F7FA',
+              transition: 'border-color .2s, background .2s, transform .2s',
+            }}
+              onMouseEnter={e => { e.currentTarget.style.borderColor = 'rgba(135,195,245,0.58)'; e.currentTarget.style.background = 'rgba(135,195,245,0.2)'; e.currentTarget.style.transform = 'translateY(-3px)' }}
+              onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(135,195,245,0.26)'; e.currentTarget.style.background = 'rgba(135,195,245,0.14)'; e.currentTarget.style.transform = 'translateY(0)' }}>
+              <span style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 2,
+                background: 'linear-gradient(90deg, transparent, #87C3F5, transparent)' }} />
+              <span style={{ display: 'block', fontFamily: "'DM Mono',monospace", fontSize: 10,
+                letterSpacing: '0.15em', textTransform: 'uppercase',
+                color: 'rgba(245,247,250,0.52)', marginBottom: 10 }}>
+                Phone
+              </span>
+              <span style={{ fontSize: 17, color: '#F5F7FA' }}>{PHONE_DISPLAY}</span>
+            </a>
+          </div>
+        </div>
+
+        <p style={{ fontFamily: "'DM Mono',monospace", fontSize: 10,
+          letterSpacing: '0.16em', textTransform: 'uppercase',
+          color: 'rgba(245,247,250,0.38)', marginBottom: 16, textAlign: 'left' }}>
+          Enquiry Form
+        </p>
+
         {status === 'sent' ? (
-          <div style={{ padding: '48px 32px', border: '1px solid rgba(33,118,255,0.2)',
-            borderRadius: 4, background: 'rgba(33,118,255,0.05)' }}>
+          <div style={{ padding: '48px 32px', border: '1px solid rgba(135,195,245,0.2)',
+            borderRadius: 4, background: 'rgba(135,195,245,0.05)' }}>
             <p style={{ fontFamily: "'Bebas Neue',sans-serif", fontSize: 32,
-              letterSpacing: '0.04em', color: '#2176FF', marginBottom: 12 }}>
+              letterSpacing: '0.04em', color: '#87C3F5', marginBottom: 12 }}>
               Enquiry Received
             </p>
             <p style={{ fontSize: 14, color: 'rgba(245,247,250,0.52)' }}>
@@ -100,9 +193,9 @@ export default function Contact() {
             </button>
           </div>
         ) : (
-          <form ref={formRef} className="reveal" onSubmit={submit}
+          <form ref={formRef} onSubmit={submit}
             style={{ display: 'grid', gridTemplateColumns: '1fr 1fr',
-              gap: 14, textAlign: 'left', transitionDelay: '0.3s' }}>
+              gap: 14, textAlign: 'left', opacity: 1, transform: 'none' }}>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
               <label style={{ fontFamily: "'DM Mono',monospace", fontSize: 10,
@@ -155,27 +248,31 @@ export default function Contact() {
 
             {status === 'error' && (
               <div style={{ gridColumn: '1 / -1', fontSize: 13,
-                color: '#ff6b6b', textAlign: 'center', padding: '8px 0' }}>
-                Something went wrong. Please try again or email us directly.
+                color: '#ff8a8a', textAlign: 'center', padding: '8px 0' }}>
+                Something went wrong. Please try again or email us at{' '}
+                <a href={`mailto:${CONTACT_EMAIL}`} style={{ color: '#87C3F5' }}>
+                  {CONTACT_EMAIL}
+                </a>.
               </div>
             )}
 
             <div style={{ gridColumn: '1 / -1', textAlign: 'right', marginTop: 8 }}>
               <button type="submit" data-hover disabled={status === 'sending'}
                 style={{ fontFamily: "'DM Mono',monospace", fontSize: 12, letterSpacing: '0.12em',
-                  textTransform: 'uppercase', padding: '14px 40px', background: '#2176FF',
-                  color: '#fff', border: 'none', borderRadius: 3, cursor: 'none',
+                  textTransform: 'uppercase', padding: '14px 40px', background: '#87C3F5',
+                  color: '#123B5C', border: 'none', borderRadius: 3, cursor: 'none',
+                  fontWeight: 700,
                   opacity: status === 'sending' ? 0.6 : 1,
                   transition: 'opacity .2s, transform .2s' }}
                 onMouseEnter={e => { if(status!=='sending'){ e.target.style.opacity='.82'; e.target.style.transform='translateY(-2px)' } }}
                 onMouseLeave={e => { e.target.style.opacity=status==='sending'?'0.6':'1'; e.target.style.transform='translateY(0)' }}>
-                {status === 'sending' ? 'Sending...' : 'Send Enquiry →'}
+                {status === 'sending' ? 'Sending...' : 'Send Enquiry'}
               </button>
             </div>
           </form>
         )}
       </div>
-      <style>{`@media(max-width:600px){ form[style*="1fr 1fr"]{ grid-template-columns:1fr !important; } }`}</style>
+      <style>{`@media(max-width:600px){ form[style*="1fr 1fr"], .contact-links{ grid-template-columns:1fr !important; } }`}</style>
     </section>
   )
 }

@@ -21,20 +21,20 @@ export default function StatsBar() {
 
   return (
     <div ref={ref} style={{
-      background: '#162438',
-      borderTop: '1px solid rgba(33,118,255,0.09)',
-      borderBottom: '1px solid rgba(33,118,255,0.09)',
+      background: '#18324A',
+      borderTop: '1px solid rgba(135,195,245,0.09)',
+      borderBottom: '1px solid rgba(135,195,245,0.09)',
       display: 'grid', gridTemplateColumns: 'repeat(4,1fr)',
       padding: '32px 60px',
     }}>
       {STATS.map((s, i) => (
         <div key={i} className="stat-i reveal" style={{
           textAlign: 'center', padding: '8px 20px',
-          borderRight: i < 3 ? '1px solid rgba(33,118,255,0.09)' : 'none',
+          borderRight: i < 3 ? '1px solid rgba(135,195,245,0.09)' : 'none',
           transitionDelay: `${i * 0.1}s`,
         }}>
           <div style={{ fontFamily: "'Bebas Neue',sans-serif", fontSize: 44,
-            letterSpacing: '0.04em', color: '#2176FF', lineHeight: 1, marginBottom: 7 }}>
+            letterSpacing: '0.04em', color: '#87C3F5', lineHeight: 1, marginBottom: 7 }}>
             {s.val}
           </div>
           <div style={{ fontFamily: "'DM Mono',monospace", fontSize: 10,

@@ -28,15 +28,15 @@ export default function Navbar() {
       style={{
         position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-        padding: scrolled ? '14px 60px' : '22px 60px',
-        background: scrolled ? 'rgba(13,27,42,0.96)' : 'transparent',
+        padding: scrolled ? '10px 60px' : '16px 60px',
+        background: scrolled ? 'rgba(16,36,55,0.94)' : 'transparent',
         backdropFilter: scrolled ? 'blur(16px)' : 'none',
-        borderBottom: scrolled ? '1px solid rgba(33,118,255,0.12)' : 'none',
+        borderBottom: scrolled ? '1px solid rgba(135,195,245,0.12)' : 'none',
         transition: 'all 0.35s ease',
       }}
     >
       <a href="#hero" onClick={e => { e.preventDefault(); go('#hero') }} data-hover>
-        <img src={logo} alt="YKM Varuna Aviation" style={{ height: 36, filter: 'brightness(0) invert(1)' }} />
+        <img src={logo} alt="Varuna Aviation" style={{ height: 64, width: 'auto', display: 'block', filter: 'brightness(0) invert(1)' }} />
       </a>
 
       {/* Desktop */}
@@ -58,8 +58,8 @@ export default function Navbar() {
       <a href="#contact" data-hover onClick={e => { e.preventDefault(); go('#contact') }}
         className="hidden-mobile"
         style={{ fontFamily: "'DM Mono',monospace", fontSize: 11, letterSpacing: '0.12em',
-          textTransform: 'uppercase', padding: '10px 22px', background: '#2176FF',
-          color: '#fff', borderRadius: 3, textDecoration: 'none',
+          textTransform: 'uppercase', padding: '10px 22px', background: '#87C3F5',
+          color: '#123B5C', borderRadius: 3, textDecoration: 'none', fontWeight: 700,
           transition: 'opacity .2s, transform .2s' }}
         onMouseEnter={e => { e.target.style.opacity = '.82'; e.target.style.transform = 'translateY(-1px)' }}
         onMouseLeave={e => { e.target.style.opacity = '1';   e.target.style.transform = 'translateY(0)' }}>
@@ -81,7 +81,7 @@ export default function Navbar() {
       {/* Mobile dropdown */}
       {open && (
         <div style={{ position: 'absolute', top: '100%', left: 0, right: 0,
-          background: '#162438', borderBottom: '1px solid rgba(33,118,255,0.12)',
+          background: '#18324A', borderBottom: '1px solid rgba(135,195,245,0.12)',
           display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '32px 0', gap: 24 }}>
           {NAV.map(l => (
             <a key={l.href} href={l.href} onClick={e => { e.preventDefault(); go(l.href); setOpen(false) }}
@@ -92,8 +92,8 @@ export default function Navbar() {
           ))}
           <a href="#contact" onClick={e => { e.preventDefault(); go('#contact'); setOpen(false) }}
             style={{ fontFamily: "'DM Mono',monospace", fontSize: 11, letterSpacing: '0.12em',
-              textTransform: 'uppercase', padding: '10px 28px', background: '#2176FF',
-              color: '#fff', borderRadius: 3, textDecoration: 'none' }}>
+              textTransform: 'uppercase', padding: '10px 28px', background: '#87C3F5',
+              color: '#123B5C', borderRadius: 3, textDecoration: 'none', fontWeight: 700 }}>
             Get in Touch
           </a>
         </div>

@@ -19,11 +19,11 @@ function Row({ item, delay }) {
     <div ref={ref} className="reveal" style={{
       display: 'grid', gridTemplateColumns: '80px 1fr auto',
       gap: 32, alignItems: 'start', padding: '36px 0',
-      borderBottom: '1px solid rgba(33,118,255,0.08)',
+      borderBottom: '1px solid rgba(135,195,245,0.08)',
       transitionDelay: `${delay}s`,
     }}>
       <div style={{ fontFamily: "'Bebas Neue',sans-serif", fontSize: 38,
-        color: 'rgba(33,118,255,0.22)', letterSpacing: '0.04em', lineHeight: 1, paddingTop: 4 }}>
+        color: 'rgba(135,195,245,0.22)', letterSpacing: '0.04em', lineHeight: 1, paddingTop: 4 }}>
         {item.idx}
       </div>
       <div>
@@ -35,8 +35,8 @@ function Row({ item, delay }) {
         </p>
       </div>
       <div style={{ fontFamily: "'DM Mono',monospace", fontSize: 10, letterSpacing: '0.12em',
-        textTransform: 'uppercase', padding: '4px 12px', border: '1px solid rgba(33,118,255,0.22)',
-        color: '#2176FF', borderRadius: 2, whiteSpace: 'nowrap', marginTop: 4 }}>
+        textTransform: 'uppercase', padding: '4px 12px', border: '1px solid rgba(135,195,245,0.22)',
+        color: '#87C3F5', borderRadius: 2, whiteSpace: 'nowrap', marginTop: 4 }}>
         {item.cat}
       </div>
     </div>
@@ -49,11 +49,11 @@ export default function TrackRecord() {
   const leadRef  = useReveal()
 
   return (
-    <section id="track" style={{ background: '#0D1B2A' }}>
+    <section id="track" style={{ background: '#102437' }}>
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
         <div style={{ marginBottom: 56 }}>
           <p ref={labelRef} className="reveal" style={{ fontFamily: "'DM Mono',monospace", fontSize: 11,
-            letterSpacing: '0.2em', textTransform: 'uppercase', color: '#2176FF', marginBottom: 16 }}>
+            letterSpacing: '0.2em', textTransform: 'uppercase', color: '#87C3F5', marginBottom: 16 }}>
             Previous Work
           </p>
           <h2 ref={titleRef} className="reveal" style={{ fontFamily: "'Bebas Neue',sans-serif",
@@ -67,7 +67,7 @@ export default function TrackRecord() {
           </p>
         </div>
 
-        <div style={{ borderTop: '1px solid rgba(33,118,255,0.08)' }}>
+        <div style={{ borderTop: '1px solid rgba(135,195,245,0.08)' }}>
           {WORK.map((w, i) => <Row key={w.idx} item={w} delay={i * 0.1} />)}
         </div>
       </div>

@@ -15,7 +15,7 @@ export default function Compliance() {
   const rightRef = useReveal()
 
   return (
-    <section id="compliance" style={{ background: '#162438', overflow: 'hidden' }}>
+    <section id="compliance" style={{ background: '#18324A', overflow: 'hidden' }}>
       <div style={{ maxWidth: 1200, margin: '0 auto', display: 'grid',
         gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'center' }}
         className="compliance-grid">
@@ -23,7 +23,7 @@ export default function Compliance() {
         {/* Left */}
         <div ref={leftRef} className="reveal-left">
           <p style={{ fontFamily: "'DM Mono',monospace", fontSize: 11, letterSpacing: '0.2em',
-            textTransform: 'uppercase', color: '#2176FF', marginBottom: 16 }}>
+            textTransform: 'uppercase', color: '#87C3F5', marginBottom: 16 }}>
             DGCA Compliance
           </p>
           <h2 style={{ fontFamily: "'Bebas Neue',sans-serif",
@@ -44,8 +44,8 @@ export default function Compliance() {
             {['Type Certificate','Airworthiness','CB Testing','Documentation'].map(t => (
               <span key={t} style={{ fontFamily: "'DM Mono',monospace", fontSize: 10,
                 letterSpacing: '0.12em', textTransform: 'uppercase', padding: '5px 12px',
-                border: '1px solid rgba(33,118,255,0.25)', borderRadius: 2,
-                color: '#2176FF', background: 'rgba(33,118,255,0.06)' }}>
+                border: '1px solid rgba(135,195,245,0.25)', borderRadius: 2,
+                color: '#87C3F5', background: 'rgba(135,195,245,0.06)' }}>
                 {t}
               </span>
             ))}
@@ -54,18 +54,18 @@ export default function Compliance() {
 
         {/* Right — cert card */}
         <div ref={rightRef} className="reveal-right">
-          <div style={{ background: '#0D1B2A', border: '1px solid rgba(33,118,255,0.15)',
+          <div style={{ background: '#102437', border: '1px solid rgba(135,195,245,0.15)',
             borderRadius: 4, padding: 32, position: 'relative', overflow: 'hidden' }}>
             <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 2,
-              background: 'linear-gradient(90deg,transparent,#2176FF,transparent)' }} />
+              background: 'linear-gradient(90deg,transparent,#87C3F5,transparent)' }} />
 
             <div style={{ display: 'flex', alignItems: 'center', gap: 12,
               marginBottom: 24, paddingBottom: 20,
-              borderBottom: '1px solid rgba(33,118,255,0.1)' }}>
+              borderBottom: '1px solid rgba(135,195,245,0.1)' }}>
               <span style={{ fontFamily: "'DM Mono',monospace", fontSize: 10, letterSpacing: '0.12em',
                 textTransform: 'uppercase', padding: '4px 10px',
-                background: 'rgba(33,118,255,0.12)', border: '1px solid rgba(33,118,255,0.3)',
-                color: '#2176FF', borderRadius: 2 }}>
+                background: 'rgba(135,195,245,0.12)', border: '1px solid rgba(135,195,245,0.3)',
+                color: '#87C3F5', borderRadius: 2 }}>
                 DGCA Framework
               </span>
               <span style={{ fontWeight: 500, fontSize: 14, color: '#F5F7FA' }}>
@@ -78,9 +78,9 @@ export default function Compliance() {
                 <li key={i} style={{ display: 'flex', alignItems: 'flex-start',
                   gap: 12, fontSize: 13.5, color: 'rgba(245,247,250,0.52)', lineHeight: 1.55 }}>
                   <span style={{ width: 18, height: 18, borderRadius: '50%',
-                    background: 'rgba(33,118,255,0.15)', border: '1px solid rgba(33,118,255,0.3)',
+                    background: 'rgba(135,195,245,0.15)', border: '1px solid rgba(135,195,245,0.3)',
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    flexShrink: 0, marginTop: 1, fontSize: 10, color: '#2176FF' }}>
+                    flexShrink: 0, marginTop: 1, fontSize: 10, color: '#87C3F5' }}>
                     ✓
                   </span>
                   {c}

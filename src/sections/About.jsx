@@ -14,17 +14,17 @@ export default function About() {
   const rightRef = useReveal()
 
   return (
-    <section id="about" style={{ background: '#0D1B2A' }}>
+    <section id="about" style={{ background: '#102437' }}>
       <div style={{ maxWidth: 1200, margin: '0 auto', display: 'grid',
         gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'center' }}
         className="about-grid">
 
         {/* Left — architecture diagram */}
         <div ref={leftRef} className="reveal-left">
-          <div style={{ background: '#162438', border: '1px solid rgba(33,118,255,0.14)',
+          <div style={{ background: '#18324A', border: '1px solid rgba(135,195,245,0.14)',
             borderRadius: 4, padding: 40, position: 'relative', overflow: 'hidden' }}>
             <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 2,
-              background: 'linear-gradient(90deg,transparent,#2176FF,transparent)' }} />
+              background: 'linear-gradient(90deg,transparent,#87C3F5,transparent)' }} />
             <p style={{ fontFamily: "'DM Mono',monospace", fontSize: 10, letterSpacing: '0.15em',
               textTransform: 'uppercase', color: 'rgba(245,247,250,0.28)', marginBottom: 24 }}>
               // Platform Architecture
@@ -32,12 +32,12 @@ export default function About() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
               {nodes.map((n, i) => (
                 <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 14,
-                  padding: '12px 16px', border: '1px solid rgba(33,118,255,0.1)',
-                  borderRadius: 3, background: 'rgba(33,118,255,0.04)',
+                  padding: '12px 16px', border: '1px solid rgba(135,195,245,0.1)',
+                  borderRadius: 3, background: 'rgba(135,195,245,0.04)',
                   fontSize: 13.5, color: 'rgba(245,247,250,0.55)' }}>
                   <span style={{ width: 8, height: 8, borderRadius: '50%',
-                    background: i < 3 ? '#2176FF' : 'rgba(33,118,255,0.3)',
-                    flexShrink: 0, boxShadow: i < 3 ? '0 0 8px rgba(33,118,255,0.6)' : 'none' }} />
+                    background: i < 3 ? '#87C3F5' : 'rgba(135,195,245,0.3)',
+                    flexShrink: 0, boxShadow: i < 3 ? '0 0 8px rgba(135,195,245,0.6)' : 'none' }} />
                   {n}
                 </div>
               ))}
@@ -48,8 +48,8 @@ export default function About() {
         {/* Right — text */}
         <div ref={rightRef} className="reveal-right">
           <p style={{ fontFamily: "'DM Mono',monospace", fontSize: 11, letterSpacing: '0.2em',
-            textTransform: 'uppercase', color: '#2176FF', marginBottom: 14 }}>
-            About YKM Varuna Aviation
+            textTransform: 'uppercase', color: '#87C3F5', marginBottom: 14 }}>
+            About Varuna Aviation
           </p>
           <h2 style={{ fontFamily: "'Bebas Neue',sans-serif",
             fontSize: 'clamp(38px,5vw,66px)', letterSpacing: '0.04em',
@@ -57,7 +57,7 @@ export default function About() {
             Aviation-grade<br />Engineering
           </h2>
           <p style={{ fontSize: 15, color: 'rgba(245,247,250,0.52)', lineHeight: 1.8, marginBottom: 16 }}>
-            YKM Varuna Aviation is a specialist drone engineering company operating at the
+            Varuna Aviation is a specialist drone engineering company operating at the
             intersection of hardware development and Indian regulatory compliance. We design,
             build, and certify unmanned aerial systems for government agencies,
             defence-adjacent operators, and enterprise clients who require absolute technical rigour.
@@ -72,8 +72,8 @@ export default function About() {
             {tags.map(t => (
               <span key={t} style={{ fontFamily: "'DM Mono',monospace", fontSize: 10,
                 letterSpacing: '0.12em', textTransform: 'uppercase', padding: '5px 12px',
-                border: '1px solid rgba(33,118,255,0.25)', borderRadius: 2,
-                color: '#2176FF', background: 'rgba(33,118,255,0.06)' }}>
+                border: '1px solid rgba(135,195,245,0.25)', borderRadius: 2,
+                color: '#87C3F5', background: 'rgba(135,195,245,0.06)' }}>
                 {t}
               </span>
             ))}

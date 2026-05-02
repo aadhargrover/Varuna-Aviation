@@ -27,9 +27,9 @@ function Card({ s, delay }) {
   const ref = useReveal()
   return (
     <div ref={ref} className="reveal card-bar"
-      style={{ background: '#0D1B2A', padding: '48px 44px', transitionDelay: `${delay}s` }}>
+      style={{ background: '#102437', padding: '48px 44px', transitionDelay: `${delay}s` }}>
       <div style={{ fontFamily: "'Bebas Neue',sans-serif", fontSize: 58,
-        color: 'rgba(33,118,255,0.11)', lineHeight: 1, marginBottom: 20, letterSpacing: '0.04em' }}>
+        color: 'rgba(135,195,245,0.11)', lineHeight: 1, marginBottom: 20, letterSpacing: '0.04em' }}>
         {s.num}
       </div>
       <h3 style={{ fontFamily: "'Bebas Neue',sans-serif", fontSize: 28,
@@ -42,7 +42,7 @@ function Card({ s, delay }) {
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginTop: 20 }}>
         {s.tags.map(t => (
           <span key={t} style={{ fontFamily: "'DM Mono',monospace", fontSize: 10,
-            padding: '3px 9px', border: '1px solid rgba(33,118,255,0.18)',
+            padding: '3px 9px', border: '1px solid rgba(135,195,245,0.18)',
             color: 'rgba(245,247,250,0.35)', borderRadius: 2 }}>
             {t}
           </span>
@@ -58,11 +58,11 @@ export default function Services() {
   const leadRef  = useReveal()
 
   return (
-    <section id="services" style={{ background: '#162438' }}>
+    <section id="services" style={{ background: '#18324A' }}>
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
         <div style={{ marginBottom: 60 }}>
           <p ref={labelRef} className="reveal" style={{ fontFamily: "'DM Mono',monospace", fontSize: 11,
-            letterSpacing: '0.2em', textTransform: 'uppercase', color: '#2176FF', marginBottom: 16 }}>
+            letterSpacing: '0.2em', textTransform: 'uppercase', color: '#87C3F5', marginBottom: 16 }}>
             What We Do
           </p>
           <h2 ref={titleRef} className="reveal" style={{ fontFamily: "'Bebas Neue',sans-serif",

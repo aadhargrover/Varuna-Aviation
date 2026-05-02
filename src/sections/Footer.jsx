@@ -12,12 +12,12 @@ const LINKS = [
 
 export default function Footer() {
   return (
-    <footer style={{ background: '#080f18', borderTop: '1px solid rgba(33,118,255,0.09)', padding: '48px 60px' }}>
+    <footer style={{ background: '#080f18', borderTop: '1px solid rgba(135,195,245,0.09)', padding: '30px 60px 38px' }}>
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between',
-          alignItems: 'center', flexWrap: 'wrap', gap: 20, marginBottom: 32 }}>
-          <img src={logo} alt="YKM Varuna Aviation"
-            style={{ height: 32, filter: 'brightness(0) invert(1)', opacity: 0.65 }} />
+          alignItems: 'center', flexWrap: 'wrap', gap: 20, marginBottom: 24 }}>
+          <img src={logo} alt="Varuna Aviation"
+            style={{ height: 58, width: 'auto', opacity: 0.72, filter: 'brightness(0) invert(1)' }} />
           <ul style={{ display: 'flex', gap: 32, listStyle: 'none', flexWrap: 'wrap' }}>
             {LINKS.map(l => (
               <li key={l.href}>
@@ -41,10 +41,14 @@ export default function Footer() {
             color: 'rgba(245,247,250,0.24)', letterSpacing: '0.08em' }}>
             © 2025 Varuna Aviation. All rights reserved.
           </span>
-          <span style={{ fontFamily: "'DM Mono',monospace", fontSize: 10,
-            color: 'rgba(245,247,250,0.24)', letterSpacing: '0.08em' }}>
-            varunaaviation.in
-          </span>
+          <a href="#hero" data-hover onClick={e => { e.preventDefault(); go('#hero') }}
+            style={{ fontFamily: "'DM Mono',monospace", fontSize: 10,
+              color: 'rgba(245,247,250,0.34)', letterSpacing: '0.12em',
+              textDecoration: 'none', textTransform: 'uppercase', transition: 'color .2s' }}
+            onMouseEnter={e => e.target.style.color='rgba(245,247,250,0.7)'}
+            onMouseLeave={e => e.target.style.color='rgba(245,247,250,0.34)'}>
+            Varuna Aviation
+          </a>
         </div>
       </div>
     </footer>
