@@ -61,7 +61,7 @@ export default function Hero() {
 
         <h1 className="anim-2" style={{
           fontFamily: "'Bebas Neue',sans-serif",
-          fontSize: 'clamp(58px, 8.5vw, 112px)',
+          fontSize: 'clamp(58px, 8.5vw, 130px)',
           letterSpacing: '0.04em', lineHeight: 0.94, color: '#F5F7FA', marginBottom: 0,
         }}>
           Engineered<br />
@@ -69,8 +69,8 @@ export default function Hero() {
           Airspace
         </h1>
 
-        <p className="anim-3" style={{ fontSize: 17, color: 'rgba(245,247,250,0.52)',
-          lineHeight: 1.68, marginTop: 24, maxWidth: 760, marginLeft: 'auto', marginRight: 'auto' }}>
+        <p className="anim-3" style={{ fontSize: 18, color: 'rgba(245,247,250,0.52)',
+          lineHeight: 1.68, marginTop: 10, maxWidth: 700, marginLeft: 'auto', marginRight: 'auto' }}>
           End-to-end drone manufacturing and DGCA type certification —
           built for governments, defence, and enterprise operators
           who require zero compromise.
@@ -101,7 +101,7 @@ export default function Hero() {
 
       </div>
 
-      <div className="anim-5" style={{ position: 'absolute', zIndex: 10, bottom: 26, left: '50%',
+      <div className="anim-5" style={{ position: 'absolute', zIndex: 10, bottom: 0, left: '50%',
         width: 96, marginLeft: -48, display: 'flex', flexDirection: 'column',
         alignItems: 'center', gap: 8, textAlign: 'center' }}>
         <span style={{ fontFamily: "'DM Mono',monospace", fontSize: 10,

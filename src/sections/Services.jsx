@@ -67,11 +67,11 @@ export default function Services() {
           </p>
           <h2 ref={titleRef} className="reveal" style={{ fontFamily: "'Bebas Neue',sans-serif",
             fontSize: 'clamp(40px,6vw,72px)', letterSpacing: '0.04em', lineHeight: 1,
-            color: '#F5F7FA', marginBottom: 22, transitionDelay: '0.1s' }}>
+            color: '#F5F7FA', marginBottom: 20, transitionDelay: '0.1s' }}>
             Full-spectrum<br />Drone Engineering
           </h2>
           <p ref={leadRef} className="reveal" style={{ fontSize: 16, color: 'rgba(245,247,250,0.52)',
-            lineHeight: 1.75, maxWidth: 560, transitionDelay: '0.2s' }}>
+            lineHeight: 1.75, maxWidth: 600, transitionDelay: '0.2s' }}>
             From concept airframe to certified flight — we handle the engineering, the build,
             and the regulatory path that most companies treat as separate problems.
           </p>

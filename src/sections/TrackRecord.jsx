@@ -15,30 +15,21 @@ const WORK = [
 
 function Row({ item, delay }) {
   const ref = useReveal()
+
   return (
-    <div ref={ref} className="reveal" style={{
-      display: 'grid', gridTemplateColumns: '80px 1fr auto',
-      gap: 32, alignItems: 'start', padding: '36px 0',
-      borderBottom: '1px solid rgba(135,195,245,0.08)',
-      transitionDelay: `${delay}s`,
-    }}>
-      <div style={{ fontFamily: "'Bebas Neue',sans-serif", fontSize: 38,
-        color: 'rgba(135,195,245,0.22)', letterSpacing: '0.04em', lineHeight: 1, paddingTop: 4 }}>
-        {item.idx}
+    <div
+      ref={ref}
+      className="row reveal"
+      style={{ transitionDelay: `${delay}s` }}
+    >
+      <div className="row-idx">{item.idx}</div>
+
+      <div className="row-content">
+        <p className="row-title">{item.title}</p>
+        <p className="row-desc">{item.desc}</p>
       </div>
-      <div>
-        <p style={{ fontWeight: 500, fontSize: 17, color: '#F5F7FA', marginBottom: 10 }}>
-          {item.title}
-        </p>
-        <p style={{ fontSize: 14, color: 'rgba(245,247,250,0.52)', lineHeight: 1.72 }}>
-          {item.desc}
-        </p>
-      </div>
-      <div style={{ fontFamily: "'DM Mono',monospace", fontSize: 10, letterSpacing: '0.12em',
-        textTransform: 'uppercase', padding: '4px 12px', border: '1px solid rgba(135,195,245,0.22)',
-        color: '#87C3F5', borderRadius: 2, whiteSpace: 'nowrap', marginTop: 4 }}>
-        {item.cat}
-      </div>
+
+      <div className="row-tag">{item.cat}</div>
     </div>
   )
 }
@@ -50,27 +41,170 @@ export default function TrackRecord() {
 
   return (
     <section id="track" style={{ background: '#102437' }}>
-      <div style={{ maxWidth: 1200, margin: '0 auto' }}>
-        <div style={{ marginBottom: 56 }}>
-          <p ref={labelRef} className="reveal" style={{ fontFamily: "'DM Mono',monospace", fontSize: 11,
-            letterSpacing: '0.2em', textTransform: 'uppercase', color: '#87C3F5', marginBottom: 16 }}>
+      <div className="track-container">
+
+        {/* Header */}
+        <div className="track-header">
+          <p ref={labelRef} className="reveal track-label">
             Previous Work
           </p>
-          <h2 ref={titleRef} className="reveal" style={{ fontFamily: "'Bebas Neue',sans-serif",
-            fontSize: 'clamp(40px,6vw,72px)', letterSpacing: '0.04em',
-            lineHeight: 1, color: '#F5F7FA', marginBottom: 22, transitionDelay: '0.1s' }}>
+
+          <h2 ref={titleRef} className="reveal track-title">
             What We've Built<br />&amp; Certified
           </h2>
-          <p ref={leadRef} className="reveal" style={{ fontSize: 16, color: 'rgba(245,247,250,0.52)',
-            lineHeight: 1.75, maxWidth: 540, transitionDelay: '0.2s' }}>
+
+          <p ref={leadRef} className="reveal track-lead">
             A record built on completed platforms and successful certifications — not proposals.
           </p>
         </div>
 
-        <div style={{ borderTop: '1px solid rgba(135,195,245,0.08)' }}>
-          {WORK.map((w, i) => <Row key={w.idx} item={w} delay={i * 0.1} />)}
+        {/* Rows */}
+        <div className="track-list">
+          {WORK.map((w, i) => (
+            <Row key={w.idx} item={w} delay={i * 0.1} />
+          ))}
         </div>
+
       </div>
+
+      {/* ✅ STYLES */}
+      <style>{`
+
+        .track-container {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 20px;
+        }
+
+        .track-header {
+          margin-bottom: 56px;
+        }
+
+        .track-label {
+          font-family: 'DM Mono', monospace;
+          font-size: 11px;
+          letter-spacing: 0.2em;
+          text-transform: uppercase;
+          color: #87C3F5;
+          margin-bottom: 16px;
+        }
+
+        .track-title {
+          font-family: 'Bebas Neue', sans-serif;
+          font-size: clamp(40px, 6vw, 72px);
+          letter-spacing: 0.04em;
+          line-height: 1;
+          color: #F5F7FA;
+          margin-bottom: 22px;
+        }
+
+        .track-lead {
+          font-size: 16px;
+          color: rgba(245,247,250,0.52);
+          line-height: 1.75;
+          max-width: 540px;
+        }
+
+        .track-list {
+          border-top: 1px solid rgba(135,195,245,0.08);
+        }
+
+        /* ===== ROW ===== */
+
+        .row {
+          display: grid;
+          grid-template-columns: 80px 1fr auto;
+          gap: 32px;
+          align-items: start;
+          padding: 36px 0;
+          border-bottom: 1px solid rgba(135,195,245,0.08);
+          transition: all 0.5s ease;
+        }
+
+        .row-idx {
+          font-family: 'Bebas Neue', sans-serif;
+          font-size: 38px;
+          color: rgba(135,195,245,0.22);
+          letter-spacing: 0.04em;
+        }
+
+        .row-title {
+          font-size: 17px;
+          color: #F5F7FA;
+          margin-bottom: 10px;
+        }
+
+        .row-desc {
+          font-size: 14px;
+          color: rgba(245,247,250,0.52);
+          line-height: 1.7;
+        }
+
+        .row-tag {
+          font-family: 'DM Mono', monospace;
+          font-size: 10px;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+          padding: 4px 12px;
+          border: 1px solid rgba(135,195,245,0.22);
+          color: #87C3F5;
+          border-radius: 2px;
+          white-space: nowrap;
+        }
+
+        /* ===== TABLET ===== */
+        @media (max-width: 900px) {
+          .row {
+            grid-template-columns: 60px 1fr;
+            gap: 20px;
+          }
+
+          .row-tag {
+            grid-column: 2;
+            margin-top: 12px;
+          }
+
+          .row-idx {
+            font-size: 30px;
+          }
+        }
+
+         @media (max-width: 600px) {
+
+  .row {
+    display: flex;              /* 🔥 switch from grid → flex */
+    flex-direction: column;     /* stack everything */
+    gap: 10px;
+    padding: 24px 0;
+  }
+
+  .row-idx {
+    font-size: 24px;
+    opacity: 0.4;
+    order: 1;
+  }
+
+  .row-content {
+    order: 2;
+  }
+
+  .row-title {
+    font-size: 16px;
+  }
+
+  .row-desc {
+    font-size: 13px;
+  }
+
+  .row-tag {
+    order: 3;
+    width: fit-content;
+    margin-top: 6px;
+  }
+
+        }
+
+      `}</style>
     </section>
   )
 }
