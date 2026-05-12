@@ -10,9 +10,9 @@ import useReveal from '../hooks/useReveal'
 //    {{from_email}}, {{enquiry_type}}, {{message}}
 // 4. Go to Account → API Keys → copy PUBLIC_KEY
 // Replace the three strings below:
-const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID'
-const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID'
-const EMAILJS_PUBLIC_KEY  = 'YOUR_PUBLIC_KEY'
+const EMAILJS_SERVICE_ID  = 'service_bygbskb'
+const EMAILJS_TEMPLATE_ID = 'template_oa7l19e'
+const EMAILJS_PUBLIC_KEY  = 'tA-OImYZ54TCDStb7'
 // ──────────────────────────────────────────────────────────────
 
 const CONTACT_EMAIL = 'info@varunaaviation.com'
@@ -69,21 +69,36 @@ export default function Contact() {
     }
 
     try {
-      await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        {
-          from_name:    form.name,
-          from_org:     form.org,
-          from_email:   form.email,
-          reply_to:      form.email,
-          to_email:      FORM_RECIPIENTS.join('; '),
-          website_from:  WEBSITE_FROM_EMAIL,
-          enquiry_type: form.type,
-          message:      form.message,
-        },
-        EMAILJS_PUBLIC_KEY
-      )
+      // Main enquiry mail to company
+await emailjs.send(
+  EMAILJS_SERVICE_ID,
+  EMAILJS_TEMPLATE_ID,
+  {
+    from_name:    form.name,
+    from_org:     form.org,
+    from_email:   form.email,
+    reply_to:     form.email,
+    to_email:     FORM_RECIPIENTS.join('; '),
+    website_from: WEBSITE_FROM_EMAIL,
+    enquiry_type: form.type,
+    message:      form.message,
+  },
+  EMAILJS_PUBLIC_KEY
+)
+
+// Auto reply mail to user
+await emailjs.send(
+  EMAILJS_SERVICE_ID,
+  'template_jtu384k',
+  {
+    from_name: form.name,
+    from_email: form.email,
+    enquiry_type: form.type,
+    message: form.message,
+    to_email: form.email,
+  },
+  EMAILJS_PUBLIC_KEY
+)
       setStatus('sent')
       setForm(EMPTY)
     } catch (err) {
