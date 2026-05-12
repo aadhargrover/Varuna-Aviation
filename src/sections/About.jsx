@@ -207,7 +207,7 @@ export default function About() {
         </div>
       </div>
 
-      {/* ✅ styles */}
+      {/*  styles */}
       <style>{`
         .arch-item {
           transition: all 0.3s ease;
