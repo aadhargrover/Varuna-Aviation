@@ -31,9 +31,6 @@ export default function Hero() {
       {/* Glow */}
       <div className="hero-glow" />
 
-      {/* Scan line */}
-      <div className="scan-line" />
-
       {/* Corner brackets */}
       <div className="corner corner-tl" />
       <div className="corner corner-tr" />

@@ -29,9 +29,6 @@ body { font-family: 'DM Sans', sans-serif; background: var(--navy); color: #F5F7
 .hero-glow { position: absolute; width: 640px; height: 640px; border-radius: 50%; background: radial-gradient(circle, rgba(135,195,245,.11) 0%, transparent 70%); top: 50%; left: 50%; animation: glowPulse 4s ease-in-out infinite; }
 @keyframes glowPulse { 0%,100% { transform: translate(-50%,-50%) scale(1); opacity: .6; } 50% { transform: translate(-50%,-50%) scale(1.1); opacity: 1; } }
 
-.scan-line { position: absolute; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(135,195,245,.5), transparent); animation: scanDown 8s linear infinite; pointer-events: none; }
-@keyframes scanDown { 0% { top: 0%; opacity: 0; } 5% { opacity: 1; } 95% { opacity: 1; } 100% { top: 100%; opacity: 0; } }
-
 .drone-float { animation: droneFloat 6s ease-in-out infinite; }
 @keyframes droneFloat { 0%,100% { transform: translate(-50%,-55%) rotate(-1deg); } 33% { transform: translate(-50%,-60%) rotate(1deg); } 66% { transform: translate(-52%,-53%) rotate(-.5deg); } }
 
